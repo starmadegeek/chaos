@@ -1,134 +1,136 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 10px;
+        background: #282c34;
+        font-family: "Francois One", sans-serif;
+      }
 
-html,
-body {
-  margin: 0;
-  padding: 10px;
-  background: #282c34;
-  font-family: "Francois One", sans-serif;
-}
+      #frame {
+        margin-top: 30px;
+        width: 100%;
+        height: 80vh;
+        overflow: hidden;
+        border: none;
+      }
+      canvas {
+        border-radius: 8px;
+      }
 
-#frame {
-  margin-top: 30px;
-  width: 100%;
-  height: 80vh;
-  overflow: hidden;
-  border: none;
-}
-canvas {
-  border-radius: 8px;
-}
+      h3 {
+        margin: 10px 0;
+        color: #3f68ee;
+      }
 
-h3 {
-  margin: 10px 0;
-  color: #3f68ee;
-}
+      p {
+        color: #e6eaf8;
+      }
 
-p {
-  color: #e6eaf8;
-}
+      a {
+        color: #3feec2;
+      }
+      a:hover {
+        color: #24c5a5;
+      }
 
-a {
-  color: #3feec2;
-}
-a:hover {
-  color: #24c5a5;
-}
+      .site-title {
+        color: #3f8bee;
+      }
 
-.site-title {
-  color: #3f8bee;
-}
+      .wrapper {
+        max-width: 1000px;
+        margin: auto;
+      }
 
-.wrapper {
-  max-width: 1000px;
-  margin: auto;
-}
+      button {
+        padding: 10px;
+        border: none;
+        background-color: #0a534d;
+        color: white;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 3px;
+      }
+      button:hover {
+        background-color: #1d9980;
+      }
 
-button {
-  padding: 10px;
-  border: none;
-  background-color: #0a534d;
-  color: white;
-  margin: 10px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-button:hover {
-  background-color: #1d9980;
-}
+      hr {
+        border: 1px solid #3f99ee;
+      }
 
-hr {
-  border: 1px solid #3f99ee;
-}
+      h3 {
+        color: #96a4d8;
+        text-align: center;
+      }
 
-h3 {
-    color: #96a4d8;
-    text-align: center;
-}
-
-footer {
-  padding: 30px 0;
-}
-
-</style>
+      footer {
+        padding: 30px 0;
+      }
+    </style>
     <title>Chaos</title>
   </head>
   <body>
     <div class="wrapper">
-        <h1 class="site-title">Chaos</h1>
-    
-        <p>Demonstration of Chaos with physics.</p>
-        <h3 id="example-title">  </h3>
-        <iframe seamless id="frame" src=""></iframe>
-        <div class="examples-container"></div>  
+      <h1 class="site-title">Chaos</h1>
 
-        <footer>
-          <span>Made with ❤ and javascript by <a href="">starmadegeek</a></span>
-        </footer>
-</div>
+      <p>Demonstration of Chaos with physics.</p>
+      <h3 id="example-title"></h3>
+      <iframe seamless id="frame" src=""></iframe>
+      <div class="examples-container"></div>
 
+      <footer>
+        <span>Made with ❤ and javascript by <a href="">starmadegeek</a></span>
+      </footer>
+    </div>
 
-      <script>
-            window.onload = function () {
-  let examples = [
-    { title: 'Chaos Pool Table', src: './examples/chaos_pool_table.html' },
-    { title: 'Circle Bounce', src: './examples/circle_bounce.html' },
-    { title: 'Concave Billiards', src: './examples/concave_billiards.html' },
-  ];
+    <script>
+      window.onload = function () {
+        let examples = [
+          {
+            title: "Chaos Pool Table",
+            src: "./examples/chaos_pool_table.html",
+          },
+          { title: "Circle Bounce", src: "./examples/circle_bounce.html" },
+          {
+            title: "Concave Billiards",
+            src: "./examples/concave_billiards.html",
+          },
+        ];
 
+        const dom_ui = document.querySelector(".examples-container");
+        const frame = document.getElementById("frame");
+        const heading = document.getElementById("example-title");
 
-  const dom_ui = document.querySelector('.examples-container');
-  const frame = document.getElementById('frame');
-  const heading = document.getElementById('example-title');
+        frame.src = examples[0].src;
+        heading.innerHTML = examples[0].title;
+        if (window.location.hash) {
+          frame.src = window.location.hash.replace("#", "");
+        }
+        var content = frame.contentWindow.document.body;
 
-  frame.src = examples[0].src;
-  heading.innerHTML = examples[0].title;
-  if (window.location.hash) {
-    frame.src = window.location.hash.replace('#', '');
-  }
-  var content = frame.contentWindow.document.body;
-
-  content.style.padding = 0;
-  content.style.margin = 0;
-  for (let i = 0; i < examples.length; i++) {
-    let button = document.createElement('button');
-    button.innerHTML = examples[i].title;
-    if(i==0) button.id = "defaultOpen";
-    button.dataset.src = examples[i].src;
-    button.onclick = function (e) {
-      frame.src = button.dataset.src;
-      window.location.hash = button.dataset.src;
-      heading.innerHTML = examples[i].title;
-    }
-    dom_ui.appendChild(button);
-  }
-  document.getElementById("defaultOpen").click();
-}
-        </script>
-</body>
+        content.style.padding = 0;
+        content.style.margin = 0;
+        for (let i = 0; i < examples.length; i++) {
+          let button = document.createElement("button");
+          button.innerHTML = examples[i].title;
+          if (i == 0) button.id = "defaultOpen";
+          button.dataset.src = examples[i].src;
+          button.onclick = function (e) {
+            frame.src = button.dataset.src;
+            window.location.hash = button.dataset.src;
+            heading.innerHTML = examples[i].title;
+          };
+          dom_ui.appendChild(button);
+        }
+        document.getElementById("defaultOpen").click();
+      };
+    </script>
+  </body>
 </html>
