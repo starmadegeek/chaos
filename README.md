@@ -14,3 +14,7 @@ This is a chaotic system. Gravity acts in the ball and the ball is released at a
 
 ### Concave Billiards: 
 This is also a chaotic system where a system of balls are kept inside a boundary rectangle and a boundary with concave sides. When inside the rectangle, the balls bounce of perfectly and their paths are not chaotic and are traceable. But if we make the boundaries slightly concave, the system becomes chaotic. The paths of balls diverge within few bounces.
+
+### Water Wheel:
+The Malkus waterwheel, also referred to as the Lorenz waterwheel or chaotic waterwheel, is a mechanical model that exhibits chaotic dynamics. Its motion is governed by the Lorenz equations. While classical waterwheels rotate in one direction at a constant speed, the Malkus waterwheel exhibits chaotic motion where its rotation will speed up, slow down, stop, change directions, and oscillate back and forth between combinations of such behaviours in an unpredictable manner. The top most bucket if filled at constant rate and every bucket is also drained at constant rate. This shifts the centre of mass of system and creates torque which rotates the wheel.
+The Center of mass of the system is plotted and traced. The path thus generated resembles a butterfly and is called the 'Lorenz Attractor'
