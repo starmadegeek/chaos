@@ -17,4 +17,7 @@ This is also a chaotic system where a system of balls are kept inside a boundary
 
 ### Water Wheel:
 The Malkus waterwheel, also referred to as the Lorenz waterwheel or chaotic waterwheel, is a mechanical model that exhibits chaotic dynamics. Its motion is governed by the Lorenz equations. While classical waterwheels rotate in one direction at a constant speed, the Malkus waterwheel exhibits chaotic motion where its rotation will speed up, slow down, stop, change directions, and oscillate back and forth between combinations of such behaviours in an unpredictable manner. The top most bucket if filled at constant rate and every bucket is also drained at constant rate. This shifts the centre of mass of system and creates torque which rotates the wheel.
-The Center of mass of the system is plotted and traced. The path thus generated resembles a butterfly and is called the 'Lorenz Attractor'
+The Center of mass of the system is plotted and traced. The path thus generated resembles a butterfly and is called the 'Lorenz Attractor'. This simulation runs by solving governing ODEs with RK4 (Runge-Kutta 4th order) method.
+
+### Double Pendulum:
+A double pendulum is a pendulum with another pendulum attached to its end, is a simple physical system that is chaotic with a strong sensitivity to initial conditions. The path of the end of the pendulum is traced and is observed to be chaotic. Keyboard controls enable to create copies with slight variation in initail conditions which further gives an insight on the chaotic nautre by comparing the said pendulum pahts. This simulation runs by solving governing ODEs with RK4 (Runge-Kutta 4th order) method.
