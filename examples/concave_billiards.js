@@ -204,6 +204,8 @@ function animationLoop() {
     // actGravity(ball);
     moveNormal(ball);
     ball.history.push([ball.x, ball.y]);
+    ball.history = ball.history.slice(-500); // Full history rendering causing calculation lag and rendering slow with reduced velocities;
+    // console.log(Math.abs(ballsNormal[0].vx), Math.abs(ballsNormal[0].vx));
   }
 
   for (let ball of ballsConcave) {
@@ -211,6 +213,7 @@ function animationLoop() {
     // actGravity(ball);
     moveConcave(ball);
     ball.history.push([ball.x, ball.y]);
+    ball.history = ball.history.slice(-500);
   }
 
   for (let ball of ballsNormal) {
