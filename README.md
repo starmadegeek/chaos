@@ -4,7 +4,7 @@
 This project demonstrates how chaotic systems work using simple physics in javascript. A key property of chaotic systems is its instability: sensitive dependence on initial
 conditions. With small initial changes to the system, the future becomes chaotic and unpredictable. This is shown using these techinques.
 
-This simulation is running on [my website](https://nivyanth.cloudns.cl/animations/chaos) if you’d like to check it out.
+This simulation is running on [my website](https://nivyanth.live/animations/chaos) if you’d like to check it out.
 
 ### Pool Box: 
 This system is a non-chaotic. The balls are initialized with a velocity and gravity acts upon them causing change in velocity. The paths of the balls follow a definite pattern. Minute change in initial conditions doesnot make much difference in their paths.
