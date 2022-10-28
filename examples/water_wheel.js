@@ -2,6 +2,7 @@ let width = 150;
 let height = 150;
 const numBuckets = 16;
 
+// the object generator: water wheel attributes
 function waterwheel(n) {
   let r = Math.random() * Math.PI * 2;
   let v = Math.random() - 0.5;
@@ -20,6 +21,7 @@ function waterwheel(n) {
   };
 }
 
+// derivative func used in Range kutta 4th order
 function derive(wheel) {
   // moment of inertia: sum of contributions from each cup
   let inertia = 0;
@@ -52,12 +54,14 @@ function derive(wheel) {
   };
 }
 
+// utility func
 function clone(wheel) {
   let dup = Object.assign({}, wheel);
   dup.buckets = wheel.buckets.slice();
   return dup;
 }
 
+// vector application
 function apply(wheel, wdot, dt) {
   wheel.rotation += wdot.rdot * dt;
   wheel.velocity += wdot.vdot * dt;
@@ -66,6 +70,7 @@ function apply(wheel, wdot, dt) {
   return wheel;
 }
 
+// application of range kutta 4th order method on the wheel
 function rk4(k1, dt) {
   let k1d = derive(k1);
   let k2 = apply(clone(k1), k1d, dt / 2);
@@ -83,6 +88,7 @@ function rk4(k1, dt) {
   return apply(k1, dot, dt / 6);
 }
 
+// frame drawing
 function draw(ctx, wheel) {
   let w = width;
   let h = height;
@@ -196,6 +202,7 @@ function draw(ctx, wheel) {
   ctx.stroke();
 }
 
+// picking up size to fit before rendering components
 function sizeCanvas() {
   let canvas = document.getElementById("chaos");
   width = window.innerWidth;
